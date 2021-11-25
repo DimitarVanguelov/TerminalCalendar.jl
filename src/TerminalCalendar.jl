@@ -64,13 +64,6 @@ function calendar(dts::Union{Vector{Date}, StepRange{Date, Month}}; tf=tf_unicod
     end
 end
 
-# function calendar(dts::StepRange{Date, Month}; tf=tf_unicode)
-#     for dt in dts
-#         calendar(dt; tf=tf)
-#     end
-# end
-
-
 # integer type arguments
 function calendar(year::Integer, month::Integer; tf=tf_unicode)
     dt = Date(year, month)
