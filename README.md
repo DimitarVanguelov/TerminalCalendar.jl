@@ -57,8 +57,6 @@ julia> calendar(Date(2021, 12))
 
 You can get the calendar for a whole year simply by inputting a single `Int`:
 
-<details><summaryClick me! ></summary>
-    <p>
 ```julia
 julia> calendar(2021)
 
@@ -195,8 +193,6 @@ julia> calendar(2021)
 │  27 │  28 │  29 │  30 │  31 │     │     │
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 ```
-    </p>
-</details>
 
 You can also pass in ranges:
 
