@@ -41,7 +41,7 @@ end
 ### exported functions ###
 
 # date type arguments
-function calendar(dt::Date = today())
+function calendar(dt::Date = today(); tf=tf_unicode)
     calenderized_dt = calendarize(dt)
 
     table_str = pretty_table(
@@ -49,6 +49,7 @@ function calendar(dt::Date = today())
         day.(calenderized_dt),
         header=first.(dayname.(1:7), 3),
         formatters=ft_missing,
+        tf=tf,
     )
 
     month_year_header = create_month_year_header(dt, table_str)
@@ -57,92 +58,104 @@ function calendar(dt::Date = today())
     print(table_str)
 end
 
-function calendar(dates::Vector{Date})
+function calendar(dts::Vector{Date}; tf=tf_unicode)
     for dt in dts
-        calendar(dt)
+        calendar(dt; tf=tf)
     end
 end
 
-function calendar(dts::StepRange{Date, Month})
+function calendar(dts::StepRange{Date, Month}; tf=tf_unicode)
     for dt in dts
-        calendar(dt)
+        calendar(dt; tf=tf)
     end
 end
 
 
 # integer type arguments
-function calendar(year::Integer, month::Integer)
+function calendar(year::Integer, month::Integer; tf=tf_unicode)
     dt = Date(year, month)
-    calendar(dt)
+    calendar(dt; tf=tf)
 end
 
-function calendar(year::Integer)
+function calendar(year::Integer; tf=tf_unicode)
     for month in 1:12
-        calendar(Date(year, month))
+        calendar(Date(year, month); tf=tf)
     end
 end
 
-function calendar(years::Vector{Int64})
+function calendar(years::Vector{Int64}; tf=tf_unicode)
     for year in years
-        calendar(year)
+        calendar(year; tf=tf)
     end
 end
 
-function calendar(years::UnitRange{Int64})
+function calendar(years::UnitRange{Int64}; tf=tf_unicode)
     for year in years
-        calendar(year)
+        calendar(year; tf=tf)
     end
 end
 
-function calendar(years::Vector{Int64}, month::Integer)
+function calendar(years::Vector{Int64}, month::Integer; tf=tf_unicode)
     for year in years
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
-function calendar(years::UnitRange{Int64}, month::Integer)
+function calendar(years::UnitRange{Int64}, month::Integer; tf=tf_unicode)
     for year in years
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
-function calendar(year::Integer, months::Vector{Int64})
+function calendar(year::Integer, months::Vector{Int64}; tf=tf_unicode)
     for month in months
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
-function calendar(year::Integer, months::UnitRange{Int64})
+function calendar(year::Integer, months::UnitRange{Int64}; tf=tf_unicode)
     for month in months
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
-function calendar(years::Vector{Int64}, months::Vector{Int64})
+function calendar(years::Vector{Int64}, months::Vector{Int64}; tf=tf_unicode)
     for year in years, month in months
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
-function calendar(years::UnitRange{Int64}, months::UnitRange{Int64})
+function calendar(years::UnitRange{Int64}, months::UnitRange{Int64}; tf=tf_unicode)
     for year in years, month in months
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
-function calendar(years::Vector{Int64}, months::UnitRange{Int64})
+function calendar(years::Vector{Int64}, months::UnitRange{Int64}; tf=tf_unicode)
     for year in years, month in months
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
-function calendar(years::UnitRange{Int64}, months::Vector{Int64})
+function calendar(years::UnitRange{Int64}, months::Vector{Int64}; tf=tf_unicode)
     for year in years, month in months
-        calendar(year, month)
+        calendar(year, month; tf=tf)
     end
 end
 
 
 export calendar
+
+# re-export table formatting from PrettyTables.jl
+export tf_ascii_dots,
+    tf_ascii_rounded,
+    tf_borderless,
+    tf_compact,
+    tf_markdown,
+    tf_matrix,
+    tf_mysql,
+    tf_simple,
+    tf_unicode,
+    tf_unicode_rounded
 
 end
