@@ -24,7 +24,7 @@ function calendar(dt::Date = today())
     calenderized_dt = calendarize(dt)
     mn = monthname(dt)
     yr = year(dt)
-    printstyled("\n\n               $mn $yr \n", bold=true)
+    printstyled("\n               $mn $yr \n", bold=true)
     pretty_table(
         day.(calenderized_dt),
         header=first.(dayname.(1:7), 3),
