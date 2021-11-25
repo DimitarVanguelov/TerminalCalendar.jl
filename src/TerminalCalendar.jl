@@ -76,25 +76,40 @@ function calendar(year::Integer; tf=tf_unicode)
     end
 end
 
-function calendar(years::Union{Vector{Int64}, UnitRange{Int64}}; tf=tf_unicode)
+function calendar(
+    years::Union{Vector{Int64}, UnitRange{Int64}, StepRange{Int64, Int64}};
+    tf=tf_unicode
+    )
     for year in years
         calendar(year; tf=tf)
     end
 end
 
-function calendar(years::Union{Vector{Int64}, UnitRange{Int64}}, month::Integer; tf=tf_unicode)
+function calendar(
+    years::Union{Vector{Int64}, UnitRange{Int64}, StepRange{Int64, Int64}},
+    month::Integer;
+    tf=tf_unicode
+    )
     for year in years
         calendar(year, month; tf=tf)
     end
 end
 
-function calendar(year::Integer, months::Union{Vector{Int64}, UnitRange{Int64}}; tf=tf_unicode)
+function calendar(
+    year::Integer,
+    months::Union{Vector{Int64}, UnitRange{Int64}, StepRange{Int64, Int64}};
+    tf=tf_unicode
+    )
     for month in months
         calendar(year, month; tf=tf)
     end
 end
 
-function calendar(years::Union{Vector{Int64}, UnitRange{Int64}}, months::Union{Vector{Int64}, UnitRange{Int64}}; tf=tf_unicode)
+function calendar(
+    years::Union{Vector{Int64}, UnitRange{Int64}, StepRange{Int64, Int64}},
+    months::Union{Vector{Int64}, UnitRange{Int64}, StepRange{Int64, Int64}};
+    tf=tf_unicode
+    )
     for year in years, month in months
         calendar(year, month; tf=tf)
     end
