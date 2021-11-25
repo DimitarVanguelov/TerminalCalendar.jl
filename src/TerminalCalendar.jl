@@ -58,17 +58,17 @@ function calendar(dt::Date = today(); tf=tf_unicode)
     print(table_str)
 end
 
-function calendar(dts::Vector{Date}; tf=tf_unicode)
+function calendar(dts::Union{Vector{Date}, StepRange{Date, Month}}; tf=tf_unicode)
     for dt in dts
         calendar(dt; tf=tf)
     end
 end
 
-function calendar(dts::StepRange{Date, Month}; tf=tf_unicode)
-    for dt in dts
-        calendar(dt; tf=tf)
-    end
-end
+# function calendar(dts::StepRange{Date, Month}; tf=tf_unicode)
+#     for dt in dts
+#         calendar(dt; tf=tf)
+#     end
+# end
 
 
 # integer type arguments
@@ -83,61 +83,25 @@ function calendar(year::Integer; tf=tf_unicode)
     end
 end
 
-function calendar(years::Vector{Int64}; tf=tf_unicode)
+function calendar(years::Union{Vector{Int64}, UnitRange{Int64}}; tf=tf_unicode)
     for year in years
         calendar(year; tf=tf)
     end
 end
 
-function calendar(years::UnitRange{Int64}; tf=tf_unicode)
-    for year in years
-        calendar(year; tf=tf)
-    end
-end
-
-function calendar(years::Vector{Int64}, month::Integer; tf=tf_unicode)
+function calendar(years::Union{Vector{Int64}, UnitRange{Int64}}, month::Integer; tf=tf_unicode)
     for year in years
         calendar(year, month; tf=tf)
     end
 end
 
-function calendar(years::UnitRange{Int64}, month::Integer; tf=tf_unicode)
-    for year in years
-        calendar(year, month; tf=tf)
-    end
-end
-
-function calendar(year::Integer, months::Vector{Int64}; tf=tf_unicode)
+function calendar(year::Integer, months::Union{Vector{Int64}, UnitRange{Int64}}; tf=tf_unicode)
     for month in months
         calendar(year, month; tf=tf)
     end
 end
 
-function calendar(year::Integer, months::UnitRange{Int64}; tf=tf_unicode)
-    for month in months
-        calendar(year, month; tf=tf)
-    end
-end
-
-function calendar(years::Vector{Int64}, months::Vector{Int64}; tf=tf_unicode)
-    for year in years, month in months
-        calendar(year, month; tf=tf)
-    end
-end
-
-function calendar(years::UnitRange{Int64}, months::UnitRange{Int64}; tf=tf_unicode)
-    for year in years, month in months
-        calendar(year, month; tf=tf)
-    end
-end
-
-function calendar(years::Vector{Int64}, months::UnitRange{Int64}; tf=tf_unicode)
-    for year in years, month in months
-        calendar(year, month; tf=tf)
-    end
-end
-
-function calendar(years::UnitRange{Int64}, months::Vector{Int64}; tf=tf_unicode)
+function calendar(years::Union{Vector{Int64}, UnitRange{Int64}}, months::Union{Vector{Int64}, UnitRange{Int64}}; tf=tf_unicode)
     for year in years, month in months
         calendar(year, month; tf=tf)
     end
