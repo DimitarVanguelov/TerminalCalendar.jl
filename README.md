@@ -9,6 +9,8 @@ A simple package to view dates in monthly calendar format from the comfort of yo
 Built on top of [PrettyTables.jl](https://github.com/ronisbr/PrettyTables.jl) with some 
 help from Ronan Arraes Jardim Chagas (aka @ronisbr)
 
+[![asciicast](https://asciinema.org/a/YKyKtXyL7ioOS2UZezEYYOEnR.svg)](https://asciinema.org/a/YKyKtXyL7ioOS2UZezEYYOEnR)
+
 ## Installation
 
 This package isn't registered yet, so just install by pointing to this repo:
@@ -19,7 +21,7 @@ This package isn't registered yet, so just install by pointing to this repo:
 
 ## Usage
 
-There is only a single exported function `calendar`. In it's most basic form, it takes two 
+There is only a single exported function `calendar`. In its most basic form, it takes two 
 `Int` values for year and month:
 
 ```julia
@@ -237,7 +239,7 @@ and vectors of dates:
 ```julia
 julia> febs = lastdayofmonth.(Date(2010, 2):Year(1):Date(2020, 2));
 julia> leap_febs = filter(x -> day(x) == 29, febs)
-6-element Vector{Date}:
+3-element Vector{Date}:
  2012-02-29
  2016-02-29
  2020-02-29
