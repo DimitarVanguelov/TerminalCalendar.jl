@@ -4,7 +4,7 @@
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
 
-<img src="assets/all-the-dates.png"/>
+![](assets/all-the-dates.png)
 
 
 A simple package to view dates in monthly calendar format from the comfort of your REPL, 
@@ -24,7 +24,7 @@ This package isn't registered yet, so just install by pointing to this repo:
 
 ## Usage
 
-<img src="assets/tercal.gif" width=500/>
+<img src="assets/tercal.gif" width=700/>
 
 
 There is only a single exported function `calendar`. In its most basic form, 
