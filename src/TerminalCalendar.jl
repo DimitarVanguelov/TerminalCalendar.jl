@@ -24,6 +24,14 @@ end
 # formatter function to replace missings, thanks to @ronisbr
 ft_missing = (v, i, j) -> ismissing(v) ? "" : v
 
+# needed for highlighter
+function date_indexes(dt::Date, date_matrix::Matrix{Union{Missing, Date}})
+    cartesian_index = findall(x -> x == dt, skipmissing(date_matrix))[1]
+    i = cartesian_index[1]
+    j = cartesian_index[2]
+    return i, j
+end
+
 
 # center month-year header for each monthly calendar
 function create_month_year_header(dt::Date, table_str::AbstractString)
