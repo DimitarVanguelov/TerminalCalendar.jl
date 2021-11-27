@@ -163,6 +163,9 @@ function calendar(
 end
 
 
+include("precompile_statements.jl")
+
+
 export calendar
 
 # re-export table formatting from PrettyTables.jl
