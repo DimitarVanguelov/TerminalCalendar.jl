@@ -15,10 +15,10 @@ Currently, only the English language Gregorian calendar is supported.
 
 ## Installation
 
-This package isn't registered yet, so just install by pointing to this repo:
+This package is registered, thus it can be installed by running:
 
 ```julia
-] add https://github.com/DimitarVanguelov/TerminalCalendar.jl.git
+] add TerminalCalendar
 ```
 
 
