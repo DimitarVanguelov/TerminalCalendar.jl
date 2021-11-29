@@ -99,18 +99,30 @@ function calendar end
 function calendar(dt::Date = today(); tf=tf_unicode)
     calenderized_dt = calendarize(dt)
 
+    ii, jj = date_indexes(today(), calenderized_dt)
+
+    # hl_date = Highlighter(
+    # (data, i, j) -> date[i,j] == dt,
+    # bold=true,
+    # foreground=:blue
+    # )
+
     table_str = pretty_table(
         String,
         day.(calenderized_dt),
         header=first.(dayname.(1:7), 3),
-        formatters=ft_missing,
-        tf=tf,
     )
 
     month_year_header = create_month_year_header(dt, table_str)
-
     printstyled(month_year_header, bold=true)
-    print(table_str)
+
+    pretty_table(
+        day.(calenderized_dt),
+        header=first.(dayname.(1:7), 3),
+        formatters=ft_missing,
+        tf=tf,
+        highlighters=hl_cell(ii, jj, Crayon(bold=true, foreground=:black, background=:white))
+    )
 end
 
 function calendar(dts::Union{Vector{Date}, StepRange{Date, Month}}; tf=tf_unicode)
