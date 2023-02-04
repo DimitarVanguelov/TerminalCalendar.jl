@@ -1,7 +1,7 @@
 name = "TerminalCalendar"
 uuid = "9e34d9e9-352a-4bdb-89aa-065cccceaa64"
 authors = ["Dimitar Vanguelov <dvanguelov@gmail.com> and contributors"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
